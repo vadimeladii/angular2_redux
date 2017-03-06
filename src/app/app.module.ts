@@ -1,9 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {CounterActions} from "../redux/actions/counter-actions";
+import {NgReduxModule} from "ng2-redux";
+import {UserListActions} from "../redux/actions/user-list-actions";
 
 @NgModule({
   declarations: [
@@ -12,9 +15,14 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgReduxModule
   ],
-  providers: [],
+  providers: [
+    CounterActions,
+    UserListActions
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

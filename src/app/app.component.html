@@ -1,3 +1,20 @@
-<h1>
-  {{title}}
-</h1>
+<section class="todoapp">
+  <header class="header">
+    <h1>Users</h1>
+    <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newUser.username"
+           (keyup.enter)="addUser()">
+  </header>
+  <section class="main">
+    <ul class="todo-list">
+      <li *ngFor="let user of userList$ | async">
+        <div class="view">
+          <label>{{user.username}}</label>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <footer class="footer">
+    <span class="todo-count"><strong>{{(userList$ | async)?.length}}</strong> {{(userList$ | async)?.length == 1 ? 'item' : 'items'}} left</span>
+  </footer>
+</section>
+
